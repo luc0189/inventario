@@ -1,0 +1,39 @@
+﻿@model Inventario.Data.Entities.Bodega
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Bodega</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="nameBodega" class="control-label"></label>
+                <input asp-for="nameBodega" class="form-control" />
+                <span asp-validation-for="nameBodega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaActualización" class="control-label"></label>
+                <input asp-for="FechaActualización" class="form-control" />
+                <span asp-validation-for="FechaActualización" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

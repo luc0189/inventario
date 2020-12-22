@@ -1,0 +1,30 @@
+﻿@model Inventario.Data.Entities.Bodega
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bodega</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameBodega)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nameBodega)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActualización)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaActualización)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
