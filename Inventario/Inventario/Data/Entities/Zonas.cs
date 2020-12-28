@@ -15,7 +15,7 @@ namespace Inventario.Data.Entities
         [MaxLength(70, ErrorMessage = "El Campo {0} acepta solo {1} caracteres.")]
         public string NombreZona { get; set; }
 
-        [Display(Name = "Nombre De Asg")]
+        [Display(Name = "Asig")]
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [MaxLength(70, ErrorMessage = "El Campo {0} acepta solo {1} caracteres.")]
         public string Asg { get; set; }
