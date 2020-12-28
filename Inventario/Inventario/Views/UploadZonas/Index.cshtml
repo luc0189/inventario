@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Inventario.Data.Entities.Zonas>
+<form asp-controller="UploadZonas" asp-action="Index" method="post" enctype="multipart/form-data">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Subir Listado de Zonas</h2>
+
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="file" name="file" value="" />
+                <div class="text-danger">
+                    <p>
+                        @ViewBag.Message
+                    </p>
+                </div>
+                <div class="text-success">
+                    <p>
+                        @ViewBag.Success
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="panel-footer">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"> Upload </button>
+                <a asp-area="" asp-controller="Zonas" asp-action="Index" class="btn btn-success">Back to List</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</form>

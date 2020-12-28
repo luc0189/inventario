@@ -10,15 +10,13 @@ namespace Inventario.Data.Entities
     {
         public int Id { get; set; }
 
-        [Display(Name = "Nombre De la Sede")]
+        [Display(Name = "Nombre De la Bodega")]
         [Required(ErrorMessage = "El campo {0} es requerido.")]
         [MaxLength(70, ErrorMessage = "El Campo {0} acepta solo {1} caracteres.")]
-        public string nameBodega { get; set; }
-
-    
+        public string NameBodega { get; set; }
+            
         public DateTime FechaActualización { get; set; }
-   
+        public ICollection<Zonas> Zonas { get; set; }
 
-     
     }
 }

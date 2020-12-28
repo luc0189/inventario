@@ -34,7 +34,7 @@ namespace Inventario.Controllers
         {
             if (file == null)
             {
-                ViewBag.Message = $"Seleccione un Documento de Excel";
+                ViewBag.Message = $"Seleccione la Plantilla de Excel";
             }
             try
             {
@@ -73,23 +73,21 @@ namespace Inventario.Controllers
                         _dataContext.ChangeTracker.AutoDetectChangesEnabled = false;
                         while (reader.Read())
                         {
-                            string autorized = reader.GetValue(5).ToString();
-                            string mesa = reader.GetValue(4).ToString();
-                            string nOder = reader.GetValue(0).ToString();
-                            string fullName = reader.GetValue(1).ToString();
-                            string doc = reader.GetValue(2).ToString();
-                            string sede = reader.GetValue(3).ToString();
-                            string jornada = reader.GetValue(6).ToString();
+                            string nombreZona = reader.GetValue(0).ToString();
+                            string bodega = reader.GetValue(1).ToString();
+                           
                             var exits = await _dataContext.Zonas
-                                            
-                                            .FirstOrDefaultAsync(s => s.NombreZona == doc);
+                                            .Include(b => b.Bodega)
+                                            .FirstOrDefaultAsync(s => s.NombreZona == nombreZona);
 
                             if (exits == null)
                             {
                                 _dataContext.Zonas.Add(new Zonas()
                                 {
-                                    //NOrden = nOder,
-                                    //FullName = fullName,
+                                    NombreZona = nombreZona,
+                                    Asg="null",
+                                    Bodega= await _dataContext.Bodegas.FirstAsync(o => o.Id == Convert.ToInt32(bodega)) ,
+                                    FechaActualización = DateTime.Now
                                     //Document = doc,
                                     //AcudienteName = "*",
                                     //DocumentAcu = "*",

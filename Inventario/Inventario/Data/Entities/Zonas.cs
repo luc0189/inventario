@@ -20,6 +20,7 @@ namespace Inventario.Data.Entities
         [MaxLength(70, ErrorMessage = "El Campo {0} acepta solo {1} caracteres.")]
         public string Asg { get; set; }
         public DateTime FechaActualización { get; set; }
+        public Bodega Bodega { get; set; }
 
     }
 }
